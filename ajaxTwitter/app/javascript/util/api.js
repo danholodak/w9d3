@@ -4,12 +4,20 @@ async function customFetch(url, options = {}) {
   // console.log(options.headers)
   options.headers = {
     // Your code here
+    "X-CSRF-Token": csrfToken,
+    "Content-Type": "application/json",
+    "Accept": "application/json",
     ...options.headers,
-    "X-CSRF-Token": csrfToken
-    
+    //object destructuring
   };
 
-  return await fetch(url, options);
+ let response =  await fetch(url, options);
+ if(response.ok){
+   return response.json();
+
+ }else{
+   throw new Error(response);
+ }
 }
 export function followUser(id){
   return customFetch(`/users/${id}/follow`,{method: "POST"} )
