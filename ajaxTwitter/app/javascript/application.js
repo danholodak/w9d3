@@ -16,7 +16,7 @@ let usersSearchSelector = "";
 let tweetComposeSelector = "";
 let followersSelector = "";
 
-
+// this makes a nodelist and we can use forEach
 document.querySelectorAll(followToggleSelector).forEach((el) => {
   new FollowToggle(el);
   // console.log(el)

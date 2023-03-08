@@ -3,12 +3,17 @@ import { API, broadcast } from "./util";
 export default class FollowToggle {
   constructor(toggleButton) {
     this.toggleButton = toggleButton
-    handleClick(event)
-    // Your code here
+    this.handleClick = this.handleClick.bind(this)
+    this.toggleButton.addEventListener('click',this.handleClick)
+
   }
 
   async handleClick(event) {
-    // Your code here
+    // you'll be replacing this form submission with an AJAX request shortly
+    event.preventDefault();
+    console.log("hello")
+
+
   }
 
   async follow() {
