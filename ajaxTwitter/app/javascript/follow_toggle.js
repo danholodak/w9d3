@@ -11,8 +11,14 @@ export default class FollowToggle {
   async handleClick(event) {
     // you'll be replacing this form submission with an AJAX request shortly
     event.preventDefault();
-    console.log("hello")
-
+    console.log(this.followState)
+    if (this.followState === "followed"){
+      this.unfollow();
+      // console.log("invoke unfollow")
+    }else{
+      this.follow();
+      // console.log("invoke follow")
+    }
 
   }
 
